@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "short_name": "Dark Mode Toggler",
+  "name": "Dark Mode Toggler",
+  "description": "A Chrome extension to switch any website to dark mode.",
+  "version": "1.0",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "sun16.png",
+      "48": "sun48.png",
+      "128": "sun128.png"
+    }
+  },
+  "permissions": ["tabs", "activeTab", "scripting", "storage"],
+  "host_permissions":[
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+   "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
